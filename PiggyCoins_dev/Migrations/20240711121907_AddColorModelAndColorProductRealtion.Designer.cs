@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using PiggyCoins_dev.Data;
@@ -11,9 +12,11 @@ using PiggyCoins_dev.Data;
 namespace PiggyCoins_dev.Migrations
 {
     [DbContext(typeof(PiggyCoinsContext))]
-    partial class PiggyCoinsContextModelSnapshot : ModelSnapshot
+    [Migration("20240711121907_AddColorModelAndColorProductRealtion")]
+    partial class AddColorModelAndColorProductRealtion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
