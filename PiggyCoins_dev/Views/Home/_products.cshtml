@@ -1,0 +1,18 @@
+﻿@model IEnumerable<PiggyCoins_dev.Models.Product>
+
+<div id="product">
+    <h2 class="mt-5 mb-5 fs-2 text-center">Product of the Moment</h2>
+    @foreach (var product in Model)
+    {
+        if (product != null)
+        {
+            <div class="menu-container d-flex gap-3">
+                <div class="menu-text-container d-flex flex-column flex-grow-1">
+                    <div class="menu-title-container d-inline-flex mb-3">
+                        <h3>@product.Name </h3>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+

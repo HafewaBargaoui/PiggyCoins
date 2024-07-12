@@ -1,21 +1,34 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PiggyCoins_dev.Models;
 using System.Diagnostics;
+using PiggyCoins_dev.ViewModels;
+using PiggyCoins_dev.Data;
+
 
 namespace PiggyCoins_dev.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly PiggyCoinsContext _context;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, PiggyCoinsContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var viewModel = new HomeViewModel
+            {
+                // Chargement des produits depuis la base de données
+                Products = await _context.Products.ToListAsync()
+
+
+            };
+            return View(viewModel);
         }
 
         public IActionResult Privacy()
