@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using PiggyCoins_dev.Data;
 namespace PiggyCoins_dev.Models
 {
     public class Product
@@ -14,5 +14,7 @@ namespace PiggyCoins_dev.Models
         public decimal Price { get; set; }
         public string Description { get; set; }
         public Color? Color { get; set; }
+        public ProductCategory ProductCategory { get; set; }
+        public bool NewIn { get; set; }
     }
 }
