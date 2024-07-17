@@ -21,12 +21,12 @@ namespace PiggyCoins_dev.Controllers
 
         public async Task<IActionResult> Index()
         {
+            var categoryNames = Enum.GetNames(typeof(ProductCategory)).ToList();
             var viewModel = new HomeViewModel
             {
-                // Chargement des produits depuis la base de données
-                //Products = await _context.Products.ToListAsync()
-
-                 Products = await _context.Products.Include(p => p.Images).ToListAsync()
+                // Load products from the database
+                Products = await _context.Products.Include(p => p.Images).ToListAsync(),
+                CategoryNames = categoryNames
             };
             return View(viewModel);
         }
