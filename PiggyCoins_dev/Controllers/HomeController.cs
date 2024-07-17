@@ -24,9 +24,9 @@ namespace PiggyCoins_dev.Controllers
             var viewModel = new HomeViewModel
             {
                 // Chargement des produits depuis la base de données
-                Products = await _context.Products.ToListAsync()
+                //Products = await _context.Products.ToListAsync()
 
-
+                 Products = await _context.Products.Include(p => p.Images).ToListAsync()
             };
             return View(viewModel);
         }
