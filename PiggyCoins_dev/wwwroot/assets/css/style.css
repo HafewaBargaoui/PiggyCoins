@@ -1649,7 +1649,7 @@ section {
 }
 
 /*//////////////////////////////*/
-.section-title p {
+/*.section-title p {
     color: var(--heading-color);
     margin: 10px 0 0 0;
     font-size: 48px;
@@ -1659,4 +1659,21 @@ section {
 
     .section-title p .description-title {
         color: var(--accent-color);
+    }
+*/
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+    .nav-container ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+    }
+
+    .nav-container li {
+        margin: 0 15px;
     }

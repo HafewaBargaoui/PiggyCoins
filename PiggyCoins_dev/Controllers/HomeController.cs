@@ -35,6 +35,14 @@ namespace PiggyCoins_dev.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> AllProducts()
+        {
+            // Récupérer les produits depuis la base de données
+            var products = await _context.Products.Include(p => p.Images).ToListAsync();
+
+            // Passer les produits à la vue
+            return View(products);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
