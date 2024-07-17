@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using PiggyCoins_dev.Data;
@@ -11,9 +12,11 @@ using PiggyCoins_dev.Data;
 namespace PiggyCoins_dev.Migrations
 {
     [DbContext(typeof(PiggyCoinsContext))]
-    partial class PiggyCoinsContextModelSnapshot : ModelSnapshot
+    [Migration("20240717192921_AddAddedDateToProduct")]
+    partial class AddAddedDateToProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -94,6 +97,9 @@ namespace PiggyCoins_dev.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<bool>("NewIn")
+                        .HasColumnType("boolean");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");

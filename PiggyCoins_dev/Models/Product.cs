@@ -15,7 +15,7 @@ namespace PiggyCoins_dev.Models
         public string Description { get; set; }
         public Color? Color { get; set; }
         public ProductCategory ProductCategory { get; set; }
-        public bool NewIn { get; set; }
+        public DateTime AddedDate { get; set; }
         public ICollection<Image>? Images { get; set; }
     }
 }

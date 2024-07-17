@@ -25,7 +25,9 @@ namespace PiggyCoins_dev.Controllers
             var viewModel = new HomeViewModel
             {
                 // Load products from the database
-                Products = await _context.Products.Include(p => p.Images).ToListAsync(),
+                Products = await _context.Products.Include(p => p.Images)
+                 .Where(p => (DateTime.UtcNow - p.AddedDate).TotalDays <= 30)
+                .ToListAsync(),
                 CategoryNames = categoryNames
             };
             return View(viewModel);
